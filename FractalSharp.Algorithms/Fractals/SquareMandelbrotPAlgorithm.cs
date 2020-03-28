@@ -24,7 +24,6 @@ using System.Threading;
 namespace FractalSharp.Algorithms.Fractals
 {
     public class SquareMandelbrotPParams<TNumber> : FractalParams<TNumber>
-        where TNumber : struct
     {
         public int NumProbePoints { get; set; }
         public bool ShouldUseSeriesApproximation { get; set; }
@@ -49,7 +48,6 @@ namespace FractalSharp.Algorithms.Fractals
     public class SquareMandelbrotPAlgorithm<TNumber> 
         : FractalProvider<TNumber, SquareMandelbrotPParams<TNumber>>, 
           IFractalProvider<TNumber>
-        where TNumber : struct
     {
         private Random Random;
 

@@ -23,7 +23,6 @@ namespace FractalSharp.Algorithms.Fractals
 {
     public class EscapeTimeParams<TNumber> 
         : FractalParams<TNumber>
-        where TNumber : struct
     {
         public Number<TNumber> EscapeRadius { get; set; }
 
@@ -52,7 +51,6 @@ namespace FractalSharp.Algorithms.Fractals
     public abstract class EscapeTimeAlgorithm<TNumber, TParam>
         : FractalProvider<TNumber, TParam>
         where TParam : EscapeTimeParams<TNumber>
-        where TNumber : struct
     {
         protected override bool Initialize(CancellationToken cancellationToken) => true;
 

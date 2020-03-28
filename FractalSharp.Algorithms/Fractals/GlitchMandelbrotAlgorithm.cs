@@ -22,7 +22,6 @@ namespace FractalSharp.Algorithms.Fractals
 {
     public class GlitchMandelbrotAlgorithm<TNumber> :
         EscapeTimeAlgorithm<TNumber, EscapeTimeParams<TNumber>>
-        where TNumber : struct
     {
         protected override Complex<TNumber> DoIteration(Complex<TNumber> z, Complex<TNumber> c)
         {

@@ -22,7 +22,6 @@ namespace FractalSharp.Algorithms.Fractals
 {
     public class GeneralMandelbrotParams<TNumber> : 
         EscapeTimeParams<TNumber> 
-        where TNumber : struct
     {
         public Complex<TNumber> Power { get; set; }
 
@@ -46,7 +45,6 @@ namespace FractalSharp.Algorithms.Fractals
     }
     public class GeneralMandelbrotAlgorithm<TNumber> :
         EscapeTimeAlgorithm<TNumber, GeneralMandelbrotParams<TNumber>> 
-        where TNumber : struct
     {
         protected override Complex<TNumber> DoIteration(Complex<TNumber> z, Complex<TNumber> c)
         {

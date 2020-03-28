@@ -20,7 +20,7 @@ using FractalSharp.Numerics.Generic;
 
 namespace FractalSharp.Algorithms.Fractals
 {
-    public class SquareMandelbrotJuliaParams<TNumber> : EscapeTimeParams<TNumber> where TNumber : struct
+    public class SquareMandelbrotJuliaParams<TNumber> : EscapeTimeParams<TNumber>
     {
         public Complex<TNumber> Coordinates { get; set; }
 
@@ -40,7 +40,6 @@ namespace FractalSharp.Algorithms.Fractals
 
     public class SquareMandelbrotJuliaAlgorithm<TNumber> :
         JuliaAlgorithm<TNumber, SquareMandelbrotJuliaParams<TNumber>>
-        where TNumber : struct
     {
         protected override Complex<TNumber> DoIteration(Complex<TNumber> z)
         {

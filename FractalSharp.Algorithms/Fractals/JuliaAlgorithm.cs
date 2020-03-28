@@ -23,7 +23,6 @@ namespace FractalSharp.Algorithms.Fractals
     public abstract class JuliaAlgorithm<TNumber, TParam> : 
         EscapeTimeAlgorithm<TNumber, TParam> 
         where TParam : EscapeTimeParams<TNumber> 
-        where TNumber : struct
     {
         protected abstract Complex<TNumber> DoIteration(Complex<TNumber> prevOutput);
 

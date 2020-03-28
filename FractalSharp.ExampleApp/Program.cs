@@ -21,6 +21,8 @@ using FractalSharp.Algorithms.Coloring;
 using FractalSharp.Algorithms.Fractals;
 using FractalSharp.Imaging;
 using FractalSharp.Numerics.Generic;
+using FractalSharp.Numerics.Symbolic;
+using FractalSharp.Numerics.Types;
 using FractalSharp.Processing;
 using SkiaSharp;
 using System;
@@ -47,11 +49,11 @@ namespace FractalSharp.ExampleApp
 
     class Program
     {
-        private const int WIDTH  = 8196;
-        private const int HEIGHT = 8196;
+        private const int WIDTH  = 256;
+        private const int HEIGHT = 256;
 
-        private static readonly FractalProcessor<double, SquareMandelbrotAlgorithm<double>> FractalProcessor =
-            new FractalProcessor<double, SquareMandelbrotAlgorithm<double>>(WIDTH, HEIGHT);
+        private static readonly FractalProcessor<Sum, SquareMandelbrotAlgorithm<Sum>> FractalProcessor =
+            new FractalProcessor<Sum, SquareMandelbrotAlgorithm<Sum>>(WIDTH, HEIGHT);
 
         private static readonly ColorProcessor<SmoothColoringAlgorithm> OuterColorProcessor =
             new ColorProcessor<SmoothColoringAlgorithm>(WIDTH, HEIGHT);
@@ -91,12 +93,12 @@ namespace FractalSharp.ExampleApp
             {
                 ThreadCount = Environment.ProcessorCount,
 
-                Params = new EscapeTimeParams<double>
+                Params = new EscapeTimeParams<Sum>
                 {
-                    MaxIterations = 256,
-                    Magnification = 1.0,
-                    Location = Complex<double>.Zero,
-                    EscapeRadius = 4.0,
+                    MaxIterations = 3,
+                    Magnification = Number<Sum>.One,
+                    Location = Complex<Sum>.Zero,
+                    EscapeRadius = Number<Sum>.FromDouble(4.0),
                 }
             }, CancellationToken.None);
             PointData[,] inputData = await FractalProcessor.ProcessAsync(CancellationToken.None);

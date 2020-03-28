@@ -22,7 +22,6 @@ namespace FractalSharp.Algorithms.Fractals
 {
     public class PowerJuliaParams<TNumber> : 
         EscapeTimeParams<TNumber> 
-        where TNumber : struct
     {
         public Complex<TNumber> Coordinates { get; set; }
 

@@ -16,38 +16,34 @@
  *  along with FractalSharp.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-using FractalSharp.Numerics.Generic.Implementation;
-using FractalSharp.Numerics.Symbolic;
+using System;
 
-namespace FractalSharp.Numerics.Generic
+namespace FractalSharp.Numerics.Symbolic
 {
-    public interface IMathFactory<T>
+    public class Power<T> : IEquatable<Power<T>> where T : IEquatable<T>
     {
-        IMath<T> Create();
-    }
+        public T Base { get; }
+        public int Exponent { get; }
 
-    public class MathFactory : IMathFactory<float>, IMathFactory<double>, IMathFactory<decimal>, IMathFactory<Sum>
-    {
-        public static MathFactory Instance { get; protected set; } = new MathFactory();
-
-        IMath<float> IMathFactory<float>.Create()
+        public Power(T @base, int exponent)
         {
-            return new SingleMath();
+            Base = @base;
+            Exponent = exponent;
         }
 
-        IMath<double> IMathFactory<double>.Create()
+        public static implicit operator Power<T>(T value)
         {
-            return new DoubleMath();
+            return new Power<T>(value, 1);
         }
 
-        IMath<decimal> IMathFactory<decimal>.Create()
+        public bool Equals(Power<T> other)
         {
-            return new DecimalMath();
+            return Base.Equals(other.Base) && Exponent.Equals(other.Exponent);
         }
 
-        IMath<Sum> IMathFactory<Sum>.Create()
+        public override int GetHashCode()
         {
-            return new SymbolMath();
+            return Base.GetHashCode() ^ Exponent.GetHashCode();
         }
     }
 }

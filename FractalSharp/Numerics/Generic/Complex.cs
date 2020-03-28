@@ -28,7 +28,7 @@ namespace FractalSharp.Numerics.Generic
         Complex<double> ToDouble();
     }
 
-    public struct Complex<T> : IComplex, IEquatable<Complex<T>> where T : struct
+    public struct Complex<T> : IComplex, IEquatable<Complex<T>>
     {
         public static Complex<T> Zero         { get; } = new Complex<T>(Number<T>.Zero, Number<T>.Zero);
         public static Complex<T> One          { get; } = new Complex<T>(Number<T>.One,  Number<T>.Zero);

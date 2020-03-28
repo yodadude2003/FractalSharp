@@ -21,7 +21,6 @@ using FractalSharp.Numerics.Generic;
 namespace FractalSharp.Algorithms
 {
     public interface IFractalProvider<TNumber> : IAlgorithmProvider<Complex<TNumber>, PointData>
-        where TNumber : struct
     {
         Rectangle<TNumber> GetOutputBounds(Number<TNumber> aspectRatio);
     }
@@ -30,7 +29,6 @@ namespace FractalSharp.Algorithms
         AlgorithmProvider<Complex<TNumber>, PointData, TParam>, 
         IFractalProvider<TNumber>
         where TParam : FractalParams<TNumber>
-        where TNumber : struct
     {
         public abstract Rectangle<TNumber> GetOutputBounds(Number<TNumber> aspectRatio);
     }

@@ -29,7 +29,7 @@ namespace FractalSharp.Algorithms
         new IFractalParams Copy();
     }
 
-    public abstract class FractalParams<TNumber> : IFractalParams where TNumber : struct
+    public abstract class FractalParams<TNumber> : IFractalParams
     {
         public int MaxIterations { get; set; }
         public Number<TNumber> Magnification { get; set; }

@@ -21,7 +21,7 @@ using FractalSharp.Numerics.Generic;
 
 namespace FractalSharp.Processing
 {
-    public class PointMapper<TNumber> where TNumber : struct
+    public class PointMapper<TNumber>
     {
         public Rectangle<double> InputSpace { get; set; }
         public Rectangle<TNumber> OutputSpace { get; set; }
@@ -42,7 +42,7 @@ namespace FractalSharp.Processing
                 OutputSpace.YMin, OutputSpace.YMax);
         }
 
-        private static Number<T> MapValue<T>(Number<T> OldValue, Number<T> OldMin, Number<T> OldMax, Number<T> NewMin, Number<T> NewMax) where T : struct
+        private static Number<T> MapValue<T>(Number<T> OldValue, Number<T> OldMin, Number<T> OldMax, Number<T> NewMin, Number<T> NewMax)
         {
             Number<T> OldRange = OldMax - OldMin;
             Number<T> NewRange = NewMax - NewMin;

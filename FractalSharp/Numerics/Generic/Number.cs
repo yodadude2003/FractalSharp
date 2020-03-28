@@ -25,7 +25,7 @@ namespace FractalSharp.Numerics.Generic
         Number<double> ToDouble();
     }
 
-    public struct Number<T> : INumber, IComparable<Number<T>>, IEquatable<Number<T>> where T : struct
+    public struct Number<T> : INumber, IComparable<Number<T>>, IEquatable<Number<T>>
     {
         #region Static members
 

@@ -26,7 +26,6 @@ namespace FractalSharp.Processing
     public class FractalProcessor<TNumber, TAlgorithm>
         : BaseProcessor<Complex<TNumber>, PointData, TAlgorithm>
         where TAlgorithm : IFractalProvider<TNumber>, new()
-        where TNumber : struct
     {
         protected PointMapper<TNumber> PointMapper { get; private set; }
 
